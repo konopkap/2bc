@@ -38,3 +38,8 @@ sudo apt-get install docker-ce=$DOCKER_VERSION docker-ce-cli=$DOCKER_VERSION con
 JENKINS_VERSION=2.479.1
 sudo apt-get install jenkins=$JENKINS_VERSION -y
 sudo apt install fontconfig openjdk-17-jre -y
+
+# Startup jenkins on each boot & start this time
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+
