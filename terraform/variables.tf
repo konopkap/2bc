@@ -70,6 +70,12 @@ variable "aks_version" {
   default = "1.29.9"
 }
 
+# helm.tf
+variable "helm_sample_app_tag" {
+  type = string
+  description = "Tag used to deploy sample-app to AKS."
+}
+
 # vm.tf
 variable "vm_adminusername" {
   type        = string

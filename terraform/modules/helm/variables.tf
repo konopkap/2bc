@@ -10,3 +10,9 @@ variable "resource_group_name" {
 
   default = "Patryk-Candidate"
 }
+
+# sample_app.tf
+variable "sample_app_tag" {
+  type = string
+  description = "Tag used to deploy sample-app to AKS."
+}
