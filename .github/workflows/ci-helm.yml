@@ -10,10 +10,6 @@ on:
     branches: ["master"]
     paths:
       - "app/helm/**"
-  
-defaults:
-  run:
-    working-directory: "/app/helm/sample-app"
 
 jobs:
   lint-test:
