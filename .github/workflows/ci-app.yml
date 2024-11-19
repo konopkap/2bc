@@ -4,14 +4,14 @@ on:
   push:
     branches: [ "master" ]
     paths:
-      - "/app/**"
-      - "!/app/helm/**"
+      - "app/**"
+      - "!app/helm/**"
 
   pull_request:
     branches: [ "master", "feature/task4" ]
     paths:
-      - "/app/**" 
-      - "!/app/helm/**"
+      - "app/**" 
+      - "!app/helm/**"
 
 env:
   LOGIN_SERVER: "acrnepatryk2bc.azurecr.io"
