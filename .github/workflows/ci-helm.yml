@@ -20,12 +20,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: test ls
-        run: |
-          ls -l /app
-          ls -l /app/helm
-          ls -l /app/helm/sample-app
-
       - name: Set up Helm
         uses: azure/setup-helm@v4.2.0
         with:
