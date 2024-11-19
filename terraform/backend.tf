@@ -4,5 +4,6 @@ terraform {
     storage_account_name = "saweterraformpatryk2bc"
     container_name       = "tfstate"
     key                  = "patryk.tfstate"
+    use_oidc             = true
   }
 }

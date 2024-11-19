@@ -72,7 +72,7 @@ variable "aks_version" {
 
 # helm.tf
 variable "helm_sample_app_tag" {
-  type = string
+  type        = string
   description = "Tag used to deploy sample-app to AKS."
 }
 
