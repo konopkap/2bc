@@ -7,4 +7,4 @@ This repository contains code for 2bc.
 3. AKS key would be different from VM key.
 4. Workloads in AKS would be deployed outside of terraform (Application and Infra deployment should have separate states).
 5. ingress_nginx public IP would be managed in MC_* group (but I do not have permission on provided subscription) to avoid configuration complexity
-
+6. Authentication to ACR would be done via OIDC insted admin account.
