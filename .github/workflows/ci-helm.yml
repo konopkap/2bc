@@ -7,7 +7,7 @@ on:
       - "app/helm/**"
 
   pull_request:
-    branches: ["master"]
+    branches: ["master", "feature/task4"]
     paths:
       - "app/helm/**"
 
