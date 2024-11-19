@@ -1,0 +1,49 @@
+name: CI app
+
+on:
+  push:
+    branches: [ "master" ]
+    paths:
+      - "/app"
+    paths-ignore: 
+      - "/app/helm"
+
+  pull_request:
+    branches: [ "master" ]
+    paths:
+      - "/app" 
+    paths-ignore: 
+      - "/app/helm"
+
+env:
+  LOGIN_SERVER: "acrnepatryk2bc.azurecr.io"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      docker_image_name: ${{ steps.build-image.outputs.docker_image_name }}
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Azure CLI Login
+      uses: azure/login@v2
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+    - name: Build the Docker image
+      id: "build-image"
+      run: |
+        if [ ${{ github.base_ref == 'master' }} ] then
+          docker_image_name = ${{ env.LOGIN_SERVER }}/sample-app:$(date +%s) 
+        fi
+        else
+          docker_image_name = ${{ env.LOGIN_SERVER }}/sample-app:${{ github.ref_name }}-SNAPSHOT
+        fi
+        docker build . --file app/Dockerfile --tag $docker_image_name
+        echo $docker_image_name >> $GITHUB_OUTPUT
+  
+    - name: Push the Docker image
+      run: docker push ${{ env.docker_image_name }}    
