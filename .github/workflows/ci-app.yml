@@ -19,6 +19,9 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     outputs:
       docker_image_name: ${{ steps.build-image.outputs.docker_image_name }}
     steps:
