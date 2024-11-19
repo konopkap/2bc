@@ -5,16 +5,12 @@ on:
     branches: ["master"]
     paths:
       - "/app/helm"
-    paths-ignore:
-      - "/app"
 
   pull_request:
     branches: ["master"]
     paths:
       - "/app/helm"
-    paths-ignore:
-      - "/app"
-
+  
 defaults:
   run:
     working-directory: "/app/helm/sample-app"

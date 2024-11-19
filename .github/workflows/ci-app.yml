@@ -5,15 +5,13 @@ on:
     branches: [ "master" ]
     paths:
       - "/app"
-    paths-ignore: 
-      - "/app/helm"
+      - "!/app/helm"
 
   pull_request:
     branches: [ "master" ]
     paths:
       - "/app" 
-    paths-ignore: 
-      - "/app/helm"
+      - "!/app/helm"
 
 env:
   LOGIN_SERVER: "acrnepatryk2bc.azurecr.io"
