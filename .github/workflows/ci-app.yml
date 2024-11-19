@@ -16,14 +16,16 @@ on:
 env:
   LOGIN_SERVER: "acrnepatryk2bc.azurecr.io"
 
+defaults:
+  run:
+    working-directory: "app/"
+
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
       contents: read
-    outputs:
-      docker_image_name: ${{ steps.build-image.outputs.docker_image_name }}
     steps:
     - uses: actions/checkout@v4
 
@@ -37,14 +39,15 @@ jobs:
     - name: Build the Docker image
       id: "build-image"
       run: |
-        if [ ${{ github.base_ref == 'master' }} ] then
-          docker_image_name = ${{ env.LOGIN_SERVER }}/sample-app:$(date +%s) 
-        fi
+        if ( ${{ github.base_ref == 'master' }} ); then
+          docker_image_name=${{ env.LOGIN_SERVER }}/sample-app:$(date +%d%m%y%H%M%S) 
         else
-          docker_image_name = ${{ env.LOGIN_SERVER }}/sample-app:${{ github.ref_name }}-SNAPSHOT
+          docker_image_name=${{ env.LOGIN_SERVER }}/sample-app:${{ github.head_ref }}-SNAPSHOT
         fi
-        docker build . --file app/Dockerfile --tag $docker_image_name
-        echo $docker_image_name >> $GITHUB_OUTPUT
+        docker build . --file Dockerfile --tag $docker_image_name
+        echo "docker_image_name=$docker_image_name" >> $GITHUB_ENV
   
     - name: Push the Docker image
-      run: docker push ${{ env.docker_image_name }}    
+      run: |
+        az acr login --name ${{ env.LOGIN_SERVER }}
+        docker push ${{ env.docker_image_name }}    
