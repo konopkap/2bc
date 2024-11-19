@@ -4,12 +4,12 @@ on:
   push:
     branches: ["master"]
     paths:
-      - "/app/helm"
+      - "/app/helm/**"
 
   pull_request:
     branches: ["master", "feature/task4"]
     paths:
-      - "/app/helm"
+      - "/app/helm/**"
   
 defaults:
   run:
