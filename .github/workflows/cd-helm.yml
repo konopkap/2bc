@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - master
+  pull_request: 
+    branches:
+      - master
+  workflow_dispatch: 
 
 jobs:
   release:
@@ -33,12 +37,9 @@ jobs:
         with:
           version: v3.14.4
 
-      - name: Build Helm chart
-        run: helm 
-
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.6.0
         with:
-          charts_dir: "app/helm/sample-app"
+          charts_dir: "app/helm"
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
