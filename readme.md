@@ -10,3 +10,4 @@ This repository contains code for 2bc.
 6. Authentication to Azure would be done via OIDC insted account.
 7. Terraform apply should not be automated (it should be trigger after manual approval). It can be done with GitHub Enterprise licence or using other tool for Terraform deployment (like Terraform Cloud).
 8. Sample-app docker image should be tested before pushing to ACR.
+9. TLS cert would be added to ingress.
