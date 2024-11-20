@@ -19,7 +19,7 @@ resource "azurerm_dns_cname_record" "sample_app" {
   name                = "sample-app"
   resource_group_name = var.resource_group_name
 
-  ttl     = 300
+  ttl    = 300
   record = "ingress-nginx"
 
   tags = var.tags
