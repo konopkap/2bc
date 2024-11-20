@@ -1,1 +1,1 @@
-helm_sample_app_version = "0.4.0"
+helm_sample_app_version = "0.5.0"
