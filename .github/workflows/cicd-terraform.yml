@@ -64,6 +64,7 @@ jobs:
           echo Terraform Plan Failed!
           exit 1
         else 
+          echo "The exit code was: $exitcode"
           exit 0
         fi
       
