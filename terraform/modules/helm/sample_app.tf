@@ -10,4 +10,6 @@ resource "helm_release" "sample_app" {
   values = [
     "${file("${path.module}/values/sample_app.yaml")}"
   ]
+
+  depends_on = [ helm_release.ingress_nginx ]
 }
