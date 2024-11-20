@@ -34,7 +34,7 @@ jobs:
           version: v3.14.4
 
       - name: Build Helm chart
-        run: helm 
+        run: helm package "app/helm/sample-app"
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.6.0
