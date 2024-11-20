@@ -6,5 +6,5 @@ module "helm" {
   resource_group_name    = var.resource_group_name
 
   # sample_app.tf
-  sample_app_tag = var.helm_sample_app_tag
+  sample_app_version = var.helm_sample_app_version
 }

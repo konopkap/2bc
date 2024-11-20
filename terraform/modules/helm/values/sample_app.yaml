@@ -1,2 +1,18 @@
-image:
-  tag: "replace-me"
+ingress:
+  enabled: true
+  hosts:
+    - host: sample-app.patryk2bc.example.com
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+
+resources:
+  limits:
+    memory: 256Mi
+  requests:
+    cpu: 20m
+    memory: 64Mi
+
+autoscaling:
+  enabled: true
+  maxReplicas: 3
