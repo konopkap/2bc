@@ -3,6 +3,16 @@ entries:
   sample-app:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-11-20T20:32:32.883879922Z"
+    description: A Helm chart for Kubernetes
+    digest: b8de010006188fee0a3ea52daec3ee11faf35be058c762b0e38a6b3d53c1977b
+    name: sample-app
+    type: application
+    urls:
+    - https://github.com/konopkap/2bc/releases/download/sample-app-0.4.0/sample-app-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-11-20T19:04:50.689506925Z"
     description: A Helm chart for Kubernetes
     digest: db11b6f05dbd3409c087807545916cd7055b9ae333c99f3f8ba28198001bb57b
@@ -21,4 +31,4 @@ entries:
     urls:
     - https://github.com/konopkap/2bc/releases/download/sample-app-0.2.0/sample-app-0.2.0.tgz
     version: 0.2.0
-generated: "2024-11-20T19:04:50.689536851Z"
+generated: "2024-11-20T20:32:32.883896493Z"
