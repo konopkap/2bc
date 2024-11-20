@@ -1,11 +1,11 @@
 resource "helm_release" "sample_app" {
   name       = "sample-app"
-  repository = "https://charts.jetstack.io"
+  repository = "https://konopkap.github.io/2bc"
   chart      = "sample-app"
 
   create_namespace = true
   namespace        = "sample-app"
-  version          = "0.1.0"
+  version          = var.sample_app_version
 
   values = [
     "${file("${path.module}/values/sample_app.yaml")}"

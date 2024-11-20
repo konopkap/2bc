@@ -1,1 +1,1 @@
-helm_sample_app_tag = "latest"
+helm_sample_app_version = "0.2.0"
