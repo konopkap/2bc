@@ -8,5 +8,5 @@ module "helm" {
   # sample_app.tf
   sample_app_version = var.helm_sample_app_version
 
-  depends_on = [ azurerm_role_assignment.aks_acr ]
+  depends_on = [azurerm_role_assignment.aks_acr]
 }

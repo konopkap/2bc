@@ -11,5 +11,5 @@ resource "helm_release" "sample_app" {
     "${file("${path.module}/values/sample_app.yaml")}"
   ]
 
-  depends_on = [ helm_release.ingress_nginx ]
+  depends_on = [helm_release.ingress_nginx]
 }
