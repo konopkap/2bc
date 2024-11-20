@@ -6,6 +6,7 @@ resource "azurerm_dns_zone" "dns" {
 resource "azurerm_dns_a_record" "ingres_nginx" {
   zone_name           = azurerm_dns_zone.dns.name
   name                = "ingress-nginx"
+  #some comment
   resource_group_name = var.resource_group_name
 
   ttl     = 300
