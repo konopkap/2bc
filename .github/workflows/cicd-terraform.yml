@@ -155,4 +155,4 @@ jobs:
 
       # Terraform Apply
       - name: Terraform Apply
-        run: terraform apply --var-file "variables/example.tfvars" -auto-approve tfplan
+        run: terraform apply -auto-approve tfplan
